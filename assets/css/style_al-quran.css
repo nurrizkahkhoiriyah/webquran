@@ -1,0 +1,340 @@
+/* Global Style */
+*, *::before, *::after {
+box-sizing: border-box;
+}
+body {
+font-family: 'Poppins', sans-serif;
+margin: 0;
+padding: 0;
+background: #F4F7F6;
+color: #34495e;
+overflow-x: hidden;
+}
+.container {
+width: 100%;
+max-width: 700px;
+margin: 0 auto 40px;
+padding: 20px;
+border-radius: 8px;
+margin-top: 50px;
+}
+/* Header Utama */
+#mainHeader {
+text-align: center;
+background-color: #2e7c6c;
+color: #ffffff;
+padding: 30px;
+}
+#mainHeader h1 {
+margin: 0;
+font-size: 2em;
+font-weight: 600;
+}
+/* Halaman Depan: Daftar Surat */
+#surahListView {
+margin-bottom: 20px;
+}
+#surahListView h1 {
+text-align: center;
+color: #4d59ca;
+margin-bottom: 15px;
+font-size: 2.5em;
+}
+/* Container pencarian dengan tombol filter favorit */
+.search-container {
+display: flex;
+gap: 10px;
+margin-bottom: 20px;
+align-items: center;
+}
+.search-container input {
+flex: 1;
+padding: 8px;
+border: 1px solid #ccc;
+border-radius: 4px;
+font-size: 0.9em;
+}
+.search-container button {
+background: #4d59ca;
+color: #fff;
+border: none;
+padding: 8px 10px;
+border-radius: 4px;
+cursor: pointer;
+transition: background 0.3s;
+font-size: 1em;
+}
+.search-container button:hover {
+background: #138f75;
+}
+/* Tombol Global Bookmark di Halaman Depan */
+#frontHeader {
+text-align: left;
+margin-bottom: 15px;
+}
+#frontHeader button {
+background: #4859f0;
+color: #fff;
+border: none;
+padding: 12px;
+border-radius: 4px;
+cursor: pointer;
+transition: background 0.3s;
+font-size: 0.9em;
+}
+#frontHeader button:hover {
+background: #1626bb;
+}
+/* Grid Card untuk Daftar Surat */
+#suratList {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+gap: 15px;
+}
+/* Card style dengan ikon nomor dan tombol favorit */
+.card {
+display: flex;
+flex-direction: row;
+align-items: center;
+gap: 10px;
+background: #4859f0;
+color: #fff;
+border: 1px solid #4859f0;
+border-radius: 8px;
+padding: 10px;
+box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+cursor: pointer;
+transition: transform 0.3s, box-shadow 0.3s, background 0.3s;
+position: relative;
+}
+.card:hover {
+transform: translateY(-3px);
+box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+background: #1626bb;
+}
+/* Ikon nomor surah */
+.card-icon {
+flex-shrink: 0;
+width: 35px;
+height: 35px;
+border-radius: 50%;
+background: rgba(255,255,255,0.3);
+display: flex;
+align-items: center;
+justify-content: center;
+font-weight: 600;
+font-size: 0.9em;
+}
+/* Konten card */
+.card-content {
+flex: 1;
+font-size: 0.85em;
+}
+.card-headerr {
+display: flex;
+justify-content: space-between;
+align-items: center;
+}
+.card-headerr h2 {
+margin: 0 0 5px;
+font-size: 1em;
+color: #fff;
+font-weight: 600;
+white-space: normal;
+word-break: break-word;
+}
+.card-headerr h2 .namaArab {
+font-weight: 700;
+margin-left: 3px;
+font-size: 1em;
+}
+.card-content p {
+margin: 2px 0;
+}
+.card-content p strong {
+color: #e0f7f4;
+}
+/* Tombol favorit pada card */
+.favorite-surah-btn {
+background: transparent;
+border: none;
+color: #fff;
+font-size: 1em;
+cursor: pointer;
+transition: color 0.3s;
+}
+.favorite-surah-btn:hover {
+color: #bbbbeb;
+}
+/* Halaman Detail: Ayat */
+#surahDetailView {
+display: none;
+}
+/* Header di halaman detail */
+#detailHeader {
+display: flex;
+flex-wrap: wrap;
+gap: 10px;
+justify-content: center;
+margin-bottom: 15px;
+}
+#detailHeader button {
+background: #4859f0;
+color: #fff;
+border: none;
+padding: 8px 10px;
+border-radius: 4px;
+cursor: pointer;
+transition: background 0.3s;
+font-size: 1em;
+}
+#detailHeader button:hover {
+background: #1626bb;
+}
+.ayat {
+margin-bottom: 20px;
+padding: 10px;
+background: #f9f9f9;
+border-left: 4px solid #4859f0;
+border-radius: 7px;
+font-size: 1em;
+box-shadow: 0 2px 5px rgba(0,0,0,0.10);
+}
+.ayat p {
+margin: 6px 0;
+line-height: 1.5;
+}
+.arabic-number-badge {
+display: inline-block;
+width: 35px;
+height: 35px;
+line-height: 35px;
+background: linear-gradient(135deg, #4859f0, #1626bb);
+border: 2px solid #fff;
+border-radius: 50%;
+text-align: center;
+margin-left: 8px;
+font-weight: 600;
+color: #fff;
+box-shadow: 0 2px 4px rgba(0,0,0,0.15);
+font-size: 0.6em;
+}
+.arabic {
+font-size: 1.8em;
+text-align: right;
+direction: rtl;
+}
+.bismillah {
+text-align: center;
+font-size: 1.6em;
+margin: 20px auto;
+padding: 8px 16px;
+max-width: 90%;
+background: #ffffff;
+border: 2px solid #4859f0;
+border-radius: 12px;
+box-shadow: 0 3px 6px rgba(0,0,0,0.16);
+direction: rtl;
+font-weight: 600;
+letter-spacing: 1px;
+color: #4859f0;
+font-family: 'Amiri', serif;
+}
+.icons {
+display: flex;
+gap: 10px;
+margin-top: 8px;
+}
+.icons button {
+background: #4859f0;
+border: none;
+color: #fff;
+padding: 6px 10px;
+border-radius: 4px;
+cursor: pointer;
+transition: background 0.3s;
+font-size: 0.85em;
+}
+.icons button:hover {
+background: #1626bb;
+}
+.play-all-btn {
+background: #4859f0;
+color: #fff;
+border: none;
+padding: 8px 10px;
+border-radius: 4px;
+cursor: pointer;
+margin-bottom: 15px;
+transition: background 0.3s;
+font-size: 0.9em;
+}
+.play-all-btn:hover {
+background: #1626bb;
+}
+/* Style khusus nama surah pada detail view */
+.nama-surah {
+text-align: center;
+background-color: #4859f0;
+color: white;
+padding: 8px 0;
+border-radius: 5px;
+font-weight: 500;
+font-size: 18px;
+}
+.namaArab {
+font-weight: 700;
+margin-left: 3px;
+font-size: 1em;
+}
+/* Tampilan mobile: card ditampilkan dalam 2 kolom */
+@media screen and (max-width: 600px) {
+#suratList {
+grid-template-columns: repeat(2, 1fr);
+}
+.card {
+padding: 8px;
+}
+.card-icon {
+width: 28px;
+height: 28px;
+font-size: 0.8em;
+}
+.card-content h2 {
+font-size: 0.9em;
+white-space: normal;
+word-break: break-word;
+column-count: 1;
+column-gap: 2px;
+}
+
+.card-headerr {
+display: flex;
+justify-content: space-between;
+align-items: center;
+}
+#mainHeader {
+padding: 10px;
+}
+#mainHeader h1 {
+font-size: 1.4em;
+}
+.arabic {
+font-size: 1.5em;
+}
+.nama-surah {
+font-size: 15px;
+}
+.jumlahAyat{
+font-size: 12px;
+}
+}
+
+.teksLatin{
+font-size: 14px;
+color:#4859f0;
+}
+
+#filterFavoritesBtn{
+background: #4859f0;
+}

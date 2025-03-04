@@ -1,0 +1,141 @@
+body {
+  margin: 0;
+  font-family: 'Open Sans', sans-serif;
+  background-color: #ecf0f1;
+  color: #333;
+}
+
+header {
+  background-color: #1626bb;
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 2em;
+  font-weight: 600;
+}
+
+/* Container dropdown pencarian */
+#search-container {
+  max-width: 800px;
+  margin: 20px auto;
+  display: flex;
+  justify-content: center;
+
+}
+
+#search-select {
+  width: 100%;
+  max-width: 500px;
+  padding: 10px;
+  border: 2px solid #4859f0;
+  border-radius: 5px;
+  font-size: 1em;
+  color: #4859f0;
+  /* Teks dengan warna utama */
+  appearance: none;
+  background: #fff url('data:image/svg+xml;charset=US-ASCII,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%2316A085" viewBox="0 0 16 16"><path d="M4.646 6.146a.5.5 0 0 1 .708 0L8 8.793l2.646-2.647a.5.5 0 0 1 .708.708L8 10.207 4.646 6.854a.5.5 0 0 1 0-.708z"/></svg>') no-repeat right 10px center;
+  background-size: 16px 16px;
+  cursor: pointer;
+}
+
+#doa-container {
+  max-width: 800px;
+  margin: 30px auto;
+  padding: 0 15px;
+}
+
+.doa {
+  background-color: #fff;
+  border-left: 5px solid #4859f0;
+  margin-bottom: 20px;
+  padding: 20px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  transition: transform 0.3s ease;
+}
+
+.doa:hover {
+  transform: scale(1.02);
+}
+
+.doa h2 {
+  margin-top: 0;
+  color: #4859f0;
+}
+
+.arab {
+  font-size: 1.8em;
+  text-align: right;
+  margin: 15px 0;
+  direction: rtl;
+}
+
+.terjemah {
+  font-size: 1em;
+  margin-bottom: 10px;
+  line-height: 1.5;
+}
+
+.info {
+  font-size: 0.9em;
+  color: #777;
+  text-align: right;
+}
+
+.copy-btn {
+  padding: 5px 10px;
+  background-color: #4859f0;
+  color: #fff;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 10px;
+}
+
+.copy-btn i {
+  font-size: 1em;
+}
+
+.copy-btn:hover {
+  background-color: #1626bb;
+}
+
+.pagination {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.pagination button {
+  padding: 10px 20px;
+  background-color: #4859f0;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  margin: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.pagination button:disabled {
+  background-color: #b2b2b2;
+  cursor: not-allowed;
+}
+
+.pagination button:hover:not(:disabled) {
+  background-color: #1626bb;
+}
+
+@media (max-width: 600px) {
+  .arab {
+    font-size: 1.5em;
+  }
+}
+
+.isi {
+  margin-top: 100px;
+}
