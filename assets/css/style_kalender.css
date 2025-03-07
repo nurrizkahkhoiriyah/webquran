@@ -1,250 +1,304 @@
-/* Reset CSS */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+/* ===== Global Style ===== */
 body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background: #f5f5f5;
-  padding: 20px;
+font-family: Arial, Helvetica, sans-serif;
+background-color: #fceff1; /* Latar belakang pink muda */
+margin: 0;
+padding: 20px;
+color: #333;
 }
-.container {
-  margin-top: 50px;
-  display: flex;
-  gap: 20px;
-  max-width: 1200px;
-  margin: auto;
-  flex-wrap: wrap;
+h1 {
+text-align: center;
+margin-bottom: 20px;
+color: #000000;
+font-weight: 700;
 }
-/* Kalender */
-.calendar {
-  background: #fff;
-  border-radius: 12px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-  flex: 1 1 400px;
-  display: flex;
-  flex-direction: column;
-  overflow: hidden;
+.header-year {
+margin-top: 50px;
+text-align: center;
+margin-bottom: 15px;
+color: #384aee;
 }
-.calendar .header {
-  background: linear-gradient(135deg, #4e54c8, #8f94fb);
-  color: #fff;
-  padding: 15px 20px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+.nav-year {
+text-align: center;
+margin-bottom: 10px;
 }
-.calendar .header div {
-  text-align: center;
+.nav-year button {
+border: 2px solid #32bef5;
+background: #fff;
+color: #32bef5;
+padding: 8px 16px;
+border-radius: 25px;
+margin: 0 10px;
+cursor: pointer;
+font-weight: 500;
 }
-.calendar .header h2 {
-  font-size: 1.5em;
-  font-weight: 500;
-  margin-bottom: 5px;
+.nav-year button:hover {
+background: #000000;
+color: #fff;
 }
-.calendar .header p {
-  font-size: 0.9em;
-  margin: 0;
+/* ===== Container Kartu Kalender (Grid 3x4) ===== */
+.calendar-container {
+display: grid;
+grid-template-columns: repeat(3, 1fr);
+gap: 20px;
+max-width: 100%;
 }
-.calendar .header button {
-  background: transparent;
-  border: none;
-  color: #fff;
-  font-size: 1.5em;
-  cursor: pointer;
-  transition: transform 0.2s;
+/* ===== Kartu Bulan (versi normal) ===== */
+.month-card {
+background: #fff;
+border-radius: 12px;
+box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+border: 1px solid #f3d6db;
+display: flex;
+flex-direction: column;
+overflow: hidden;
+cursor: pointer;
+transition: transform 0.2s;
 }
-.calendar .header button:hover {
-  transform: scale(1.1);
+.month-card:hover {
+transform: scale(1.02);
 }
-.calendar .weekdays {
-  display: grid;
-  grid-template-columns: repeat(7, 1fr);
-  background: #f1f1f1;
-  text-align: center;
-  font-weight: 600;
-  padding: 8px 0;
-  border-bottom: 1px solid #ddd;
+.month-card-header {
+background: #384aee;
+color: #fff;
+padding: 20px;
+border-top-left-radius: 12px;
+border-top-right-radius: 12px;
+position: relative;
+z-index: 1;
 }
-.calendar .weekdays div {
-  font-size: 0.9em;
-  color: #555;
+.month-name {
+font-family: Arial, Helvetica, sans-serif;
+font-size: 1.8rem;
+margin: 0;
 }
-.calendar .days {
-  display: grid;
-  grid-template-columns: repeat(7, 1fr);
-  gap: 5px;
-  padding: 10px;
+.month-info {
+position: absolute;
+top: 20px;
+right: 20px;
+text-align: right;
 }
-.calendar .day {
-  background: #f9f9f9;
-  border-radius: 8px;
-  padding: 8px;
-  text-align: center;
-  cursor: pointer;
-  transition: background 0.2s, transform 0.2s;
-  position: relative;
-  min-height: 70px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+.year-range {
+font-size: 0.85rem;
+margin: 0;
 }
-.calendar .day:hover {
-  background: #e0f7fa;
-  transform: translateY(-2px);
+.date-range {
+font-size: 0.75rem;
+margin-top: 4px;
+opacity: 0.9;
 }
-.calendar .day-number {
-  font-weight: 600;
-  color: #333;
-  margin-bottom: 4px;
+.month-card table {
+width: 100%;
+border-collapse: collapse;
+background-color: #fff;
+table-layout: fixed;
 }
-.calendar .today {
-  background: #d1ecf1;
-  border: 2px solid #0c5460;
+.month-card thead tr {
+background-color: #bdb4db;
 }
-/* Ganti badge dengan icon Font Awesome "fa-pen-to-square" berwarna #FFD43B */
-.calendar .badge {
-  position: absolute;
-  bottom: 4px;
-  right: 4px;
-  font-size: 1.2em;
-  color: #FFD43B;
+.month-card th,
+.month-card td {
+border: 1px solid #f3d6db;
+text-align: center;
+padding: 6px;
+font-size: 0.8rem;
+color: #555;
+word-wrap: break-word;
+vertical-align: middle;
 }
-/* Sidebar */
-.sidebar {
-  background: #fff;
-  flex: 1 1 300px;
-  border-radius: 12px;
-  padding: 20px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-  height: fit-content;
+.month-card th {
+font-weight: 600;
+color: #000000;
 }
-.sidebar h3 {
-  font-size: 1.4em;
-  margin-bottom: 10px;
-  color: #333;
+.calendar-cell .cell-content {
+display: flex;
+flex-direction: column;
+align-items: center;
 }
-.sidebar .event-group {
-  border-bottom: 1px solid #ddd;
-  padding-bottom: 10px;
-  margin-bottom: 10px;
+.calendar-cell .hijri-date {
+font-weight: 600;
+color: #000000;
+font-size: 0.9rem;
 }
-.sidebar .event-group:last-child {
-  border-bottom: none;
-  margin-bottom: 0;
+.calendar-cell .greg-date {
+font-size: 0.7rem;
+color: #888;
+margin-top: 2px;
 }
-.sidebar .event-group h4 {
-  font-size: 1em;
-  margin-bottom: 5px;
-  color: #555;
+/* ===== Hari Ini (merah lembut) ===== */
+.today .hijri-date {
+background-color: #ffb3b3;
+color: #fff;
+border-radius: 50%;
+padding: 10px;
+min-width: 30px;
+min-height: 30px;
+display: inline-flex;
+align-items: center;
+justify-content: center;
 }
-.sidebar .event-group p {
-  font-size: 0.9em;
-  margin-left: 10px;
-  color: #333;
+/* ===== Penanda Puasa & Hari Besar Islam ===== */
+.puasa-senin-kamis { background-color: #d1f7d1; }
+.puasa-ayyamul-bidh { background-color: rgba(179, 229, 252, 0.3); }
+.tasua-asyura { background-color: #fff0b3; }
+.isra-miraj { background-color: #b19cd9; }
+.nishfu-syaban { background-color: #add8e6; }
+.puasa-ramadan { background-color: #fff5e6; border: 2px dashed #ffa200; }
+.nuzul-quran { border: 2px solid #daa520; }
+.idul-fitri { background-color: #98fb98; }
+.puasa-arafah { background-color: #ffcccb; }
+.idul-adha { background-color: #ff7f7f; }
+.hari-tasyriq { background-color: #ffff99; }
+/* ===== Penanda Khusus ===== */
+.new-year { background-color: #ffeb3b; }       /* 1 Muharram */
+.maulid-nabi { background-color: #8bc34a; }    /* 12 Rabiul Awal */
+/* ===== Footer (Catatan) ===== */
+.month-footer {
+padding: 10px 15px;
+border-top: 1px solid #f3d6db;
+font-size: 0.8rem;
+color: #444;
 }
-.sidebar .reset-btn {
-  background: #dc3545;
-  border: none;
-  color: #fff;
-  padding: 8px 12px;
-  border-radius: 4px;
-  font-size: 0.9em;
-  cursor: pointer;
-  transition: background 0.2s;
+.footnote-list {
+list-style: none;
+margin: 0;
+padding: 0;
+display: flex;
+flex-direction: column;
+gap: 4px;
 }
-.sidebar .reset-btn:hover {
-  background: #c82333;
+.footnote-item {
+display: flex;
+align-items: center;
+gap: 6px;
 }
-/* Modal Styles (untuk event per hari) */
-.modal {
-  position: fixed;
-  top: 0; left: 0;
-  right: 0; bottom: 0;
-  background: rgba(0, 0, 0, 0.5);
-  display: none;
-  align-items: center;
-  justify-content: center;
-  padding: 15px;
-  z-index: 100;
+.footnote-color {
+width: 10px;
+height: 10px;
+border-radius: 50%;
+display: inline-block;
 }
-.modal-content {
-  background: #fff;
-  border-radius: 10px;
-  padding: 30px 25px;
-  width: 100%;
-  max-width: 400px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
-  position: relative;
-  animation: fadeIn 0.3s ease-in-out;
+/* ===== Modal Overlay ===== */
+#modal {
+position: fixed;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+background: rgba(0,0,0,0.7);
+display: none;
+align-items: center;
+justify-content: center;
+z-index: 1000;
+padding: 20px;
+box-sizing: border-box;
 }
-@keyframes fadeIn {
-  from { opacity: 0; transform: scale(0.95); }
-  to { opacity: 1; transform: scale(1); }
+/* ===== Versi besar di modal (override font & size) ===== */
+.month-card-larger {
+width: 90vw;
+max-width: 900px;
+max-height: 90vh;
+overflow: auto;
+margin: auto;
+position: relative;
 }
-.modal .close {
-  position: absolute;
-  top: 10px;
-  right: 15px;
-  cursor: pointer;
-  font-size: 1.4em;
-  color: #888;
-  transition: color 0.2s;
+.month-card-larger .month-card-header { padding: 25px; }
+.month-card-larger .month-name { font-size: 2.2rem; }
+.month-card-larger .month-info p { font-size: 0.85rem; }
+.month-card-larger table th,
+.month-card-larger table td { font-size: 1rem; padding: 8px; }
+.month-card-larger .footnote-list { font-size: 0.9rem; }
+/* Tombol close di modal */
+#modal .close-btn {
+position: absolute;
+top: 20px;
+right: 30px;
+cursor: pointer;
+font-size: 30px;
+font-weight: bold;
+color: #fff;
+background: #000000;
+width: 40px;
+height: 40px;
+border-radius: 50%;
+display: flex;
+align-items: center;
+justify-content: center;
+border: 2px solid #fff;
+z-index: 9999;
 }
-.modal .close:hover {
-  color: #000;
+/* Tombol Next/Prev di dalam modal - DIPASANG DI LUAR CARD */
+.modal-nav-btn {
+position: absolute;
+top: 50%;
+transform: translateY(-50%);
+color: #fff;
+background: #000000;
+border: 2px solid #fff;
+border-radius: 50%;
+width: 45px;
+height: 45px;
+cursor: pointer;
+display: flex;
+align-items: center;
+justify-content: center;
+font-size: 20px;
+font-weight: bold;
+z-index: 9999;
 }
-.modal h3, .modal h4 {
-  margin-bottom: 15px;
-  color: #333;
+.modal-prev {
+left: 20px;
 }
-.modal .event-item {
-  background: #dff0d8;
-  padding: 10px;
-  margin: 8px 0;
-  border-radius: 5px;
-  font-size: 1em;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+.modal-next {
+right: 20px;
 }
-.modal .event-item span {
-  cursor: pointer;
-  color: #d9534f;
-  font-weight: bold;
-  margin-left: 10px;
+.modal-nav-btn:hover {
+background: #fff;
+color: #000000;
 }
-.modal input[type="text"] {
-  width: 100%;
-  padding: 12px;
-  margin: 8px 0 12px 0;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  font-size: 1em;
+
+/* Pastikan body memiliki padding-bottom cukup agar konten tidak menutupi footer */
+body {
+margin: 0;
+padding-bottom: 60px; /* Sesuaikan dengan tinggi footernya */
+font-family: 'Poppins', sans-serif;
+background: linear-gradient(135deg, #fefefe, #f4f9fd);
 }
-.modal button.save-btn {
-  width: 100%;
-  padding: 12px;
-  background: #4e54c8;
-  color: #fff;
-  border: none;
-  border-radius: 5px;
-  font-size: 1em;
-  cursor: pointer;
-  transition: background 0.2s;
+
+
+
+/* Badge notifikasi di atas ikon Shop */
+.items_basket_circle {
+position: absolute;
+top: -3px;       /* Sesuaikan agar tepat di atas ikon */
+right: 20px;     /* Sesuaikan posisi horizontal */
+background-color: #FF3B30;
+color: #fff;
+border-radius: 50%;
+width: 18px;
+height: 18px;
+font-size: 10px;
+display: flex;
+align-items: center;
+justify-content: center;
+font-weight: 600;
 }
-.modal button.save-btn:hover {
-  background: #3a40a0;
+
+/* ===== Media Queries untuk Responsivitas ===== */
+@media (max-width: 992px) {
+.calendar-container { grid-template-columns: repeat(2, 1fr); }
 }
-@media (max-width: 480px) {
-  .container {
-    flex-direction: column;
-  }
-  .calendar {
-    max-width: 100%;
-  }
+@media (max-width: 576px) {
+.calendar-container { grid-template-columns: 1fr; }
+h1 { font-size: 1.5rem; }
+.month-card-header { padding: 15px; }
+.month-name { font-size: 1.5rem; }
+.month-info p { font-size: 0.7rem; }
+.month-card table th,
+.month-card table td { font-size: 0.7rem; padding: 4px; }
+.modal-nav-btn {
+width: 35px;
+height: 35px;
+font-size: 16px;
+}
 }
